@@ -275,8 +275,8 @@ export default function App() {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             { title: "Guia de Afinação", price: "R$ 47,00", desc: "Aprenda a afinar seu violino sozinho usando apenas o celular, sem risco de estourar as cordas.", icon: <Music /> },
-            { title: "Playlist de Exercícios", price: "R$ 67,00", desc: "Acesso a áudios de acompanhamento para você praticar no ritmo certo e não se perder.", icon: <Play /> },
-            { title: "Comunidade VIP", price: "R$ 97,00", desc: "Grupo exclusivo de alunos para trocar experiências, tirar dúvidas e postar sua evolução.", icon: <Gift /> }
+            { title: "Apostila de Exercícios", price: "R$ 67,00", desc: "Acesso a exercícios exclusivos do famoso método A Tune a Day for Violin, de C. Paul Herfurthde focado em lições progressivas, postura, digitação e técnicas de arco", icon: <Play /> },
+            { title: "Pack de Músicas", price: "R$ 97,00", desc: "Conjunto de músicas do nível iniciante ao avançado para você se desafiar e aprender músicas conhecidas com maior facilidade.", icon: <Gift /> }
           ].map((bonus, i) => (
             <div key={i} className="relative p-8 rounded-2xl bg-stone-50 border-2 border-dashed border-stone-200 text-center">
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-violin-red text-white rounded-full flex items-center justify-center shadow-lg">
@@ -301,10 +301,10 @@ export default function App() {
             <p className="text-stone-400 mb-8">O guia completo do zero à primeira música + Todos os Bônus</p>
             
             <div className="mb-8">
-              <p className="text-stone-500 line-through text-xl">De R$ 197,00</p>
+              <p className="text-stone-500 line-through text-xl">De R$ 137,90</p>
               <p className="text-5xl md:text-6xl font-extrabold text-white mt-2">
                 <span className="text-2xl font-normal align-top mr-1">R$</span>
-                47,00
+                37,90
               </p>
               <p className="text-stone-400 mt-2">ou 5x de R$ 10,15*</p>
             </div>
@@ -365,35 +365,46 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Biografia */}
-      <Section className="bg-white">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="text-center lg:text-left">
-            <h2 className="text-violin-red font-bold uppercase tracking-widest mb-4">Quem será seu guia</h2>
-            <Headline className="lg:text-left">Conheça o Mestre</Headline>
-            <p className="text-lg text-stone-600 mb-6 leading-relaxed">
-              Com mais de 15 anos de experiência no ensino de instrumentos de cordas, já ajudei centenas de alunos a realizarem o sonho de tocar violino.
-            </p>
-            <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-              Minha missão é democratizar o ensino do violino, provando que qualquer pessoa, independente da idade ou talento nato, pode aprender se tiver o método certo em mãos.
-            </p>
-            <div className="flex gap-4 justify-center lg:justify-start">
-              <a href="#" className="p-3 bg-stone-100 rounded-full hover:bg-violin-red hover:text-white transition-all"><Instagram /></a>
-              <a href="#" className="p-3 bg-stone-100 rounded-full hover:bg-violin-red hover:text-white transition-all"><Youtube /></a>
-              <a href="#" className="p-3 bg-stone-100 rounded-full hover:bg-violin-red hover:text-white transition-all"><Facebook /></a>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="absolute -inset-4 bg-violin-red/10 rounded-3xl -rotate-3" />
-            <img 
-              src="https://images.unsplash.com/photo-1541913080211-4830395d947f?q=80&w=1000&auto=format&fit=crop" 
-              alt="Professor de Violino" 
-              className="relative rounded-3xl shadow-xl z-10"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-        </div>
-      </Section>
+  {/* Biografia */}
+<Section className="bg-white">
+  <div className="grid md:grid-cols-2 gap-16 items-center">
+
+    {/* Texto */}
+    <div className="text-center lg:text-left">
+      <h2 className="text-violin-red font-bold uppercase tracking-widest mb-4">
+        Quem será seu guia
+      </h2>
+
+      <Headline className="lg:text-left">
+        Conheça o Mestre
+      </Headline>
+
+      <p className="text-lg text-stone-600 mb-6 leading-relaxed">
+        Com mais de 10 anos de experiência no instrumento de cordas e ensino,
+        já ajudei alunos a realizarem o sonho de tocar violino mesmo com
+        dificuldade extrema de aprendizado.
+      </p>
+
+      <p className="text-lg text-stone-600 mb-8 leading-relaxed">
+        Minha missão é democratizar o ensino do violino, provando que qualquer
+        pessoa, independente da idade ou talento nato, pode aprender se tiver
+        o método certo em mãos.
+      </p>
+    </div>
+
+    {/* Imagem */}
+    <div className="relative">
+      <div className="absolute -inset-4 bg-violin-red/10 rounded-3xl -rotate-3"></div>
+
+      <img
+        src="/images/equipe.jpg"
+        alt="Professor de Violino"
+        className="relative rounded-3xl shadow-xl z-10"
+      />
+    </div>
+
+  </div>
+</Section>
 
       {/* Footer */}
       <footer className="bg-stone-900 text-stone-400 py-12 border-t border-white/5">
