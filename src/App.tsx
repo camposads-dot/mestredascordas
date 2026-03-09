@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import tocando from ".assets/images/apresentacao.jpg";
+import tocando from "./assets/images/apresentacao.jpg";
 import { 
   CheckCircle, 
   Play, 
