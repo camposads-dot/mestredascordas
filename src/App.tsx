@@ -1,0 +1,387 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { 
+  CheckCircle, 
+  Play, 
+  ShieldCheck, 
+  Music, 
+  Star, 
+  ChevronDown, 
+  ChevronUp, 
+  Gift, 
+  Clock, 
+  ArrowRight,
+  HelpCircle,
+  User,
+  Instagram,
+  Youtube,
+  Facebook
+} from 'lucide-react';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+// --- Components ---
+
+const Section = ({ children, className, id }: { children: React.ReactNode; className?: string; id?: string }) => (
+  <section id={id} className={cn("section-padding", className)}>
+    {children}
+  </section>
+);
+
+const Headline = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <h2 className={cn("text-4xl md:text-6xl font-bold mb-6 text-center leading-tight", className)}>
+    {children}
+  </h2>
+);
+
+const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="border-b border-stone-200 py-4">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex justify-between items-center w-full text-left font-bold text-lg hover:text-violin-red transition-colors"
+      >
+        <span>{question}</span>
+        {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden"
+          >
+            <p className="mt-4 text-stone-600 leading-relaxed">
+              {answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// --- Page ---
+
+export default function App() {
+  return (
+    <div className="min-h-screen overflow-x-hidden">
+      {/* 1ª Dobra: Hero */}
+      <header className="relative bg-stone-900 text-white overflow-hidden min-h-[90vh] flex items-center">
+        <div className="absolute inset-0 z-0 opacity-30">
+          <img 
+            src="https://images.unsplash.com/photo-1460039230329-eb052ad74a7c?q=80&w=2000&auto=format&fit=crop" 
+            alt="Violin background" 
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/50 via-stone-900/80 to-stone-900" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
+          >
+            <span className="inline-block bg-violin-red text-white px-4 py-1 rounded-full text-sm font-bold mb-6 tracking-widest uppercase">
+              Método Mestre das Cordas
+            </span>
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-extrabold mb-6 leading-[1.1] font-serif">
+              PARE DE TENTAR APRENDER <span className="text-violin-light">SOZINHO</span> E TOQUE SUA PRIMEIRA MÚSICA EM 30 DIAS.
+            </h1>
+            <p className="text-xl md:text-2xl text-stone-300 mb-10 leading-relaxed font-light">
+              O método passo a passo que elimina a frustração, corrige sua postura e te leva do zero absoluto à execução impecável, sem gastar fortunas com aulas particulares.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="#oferta" className="btn-primary group">
+                QUERO COMEÇAR AGORA
+                <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </a>
+              <div className="flex items-center justify-center lg:justify-start gap-3 text-stone-400 text-sm">
+                <ShieldCheck className="text-green-500" />
+                Compra 100% Segura
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border-4 border-stone-800 w-full max-w-2xl mx-auto lg:mx-0"
+          >
+            <div className="absolute inset-0 flex items-center justify-center group cursor-pointer">
+              <img 
+                src="https://images.unsplash.com/photo-1573871666457-7c7329118cf9?q=80&w=1200&auto=format&fit=crop" 
+                alt="Video Thumbnail" 
+                className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
+                referrerPolicy="no-referrer"
+              />
+              <div className="w-20 h-20 bg-violin-red rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <Play fill="white" size={32} className="ml-1" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </header>
+
+      {/* Problema */}
+      <Section className="bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-violin-red text-center font-bold uppercase tracking-widest mb-4">A Dura Realidade</h2>
+          <Headline>Você sente que o violino é um "instrumento impossível"?</Headline>
+          <p className="text-center text-xl text-stone-600 mb-12">
+            A maioria dos iniciantes desiste nos primeiros 3 meses. Sabe por quê?
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { title: "O som de 'gato morrendo'", desc: "Você tenta tirar uma nota limpa, mas o som sai estridente e irritante, fazendo você querer guardar o violino na caixa para sempre." },
+              { title: "Dores e má postura", desc: "Seu pescoço dói, seu braço cansa e você não sabe se está segurando o arco do jeito certo. Sem orientação, você está criando vícios perigosos." },
+              { title: "Aulas caríssimas", desc: "Pagar R$ 300, R$ 500 por mês em aulas particulares que não avançam no seu ritmo é frustrante e pesa no bolso." },
+              { title: "Falta de clareza", desc: "Você assiste vídeos aleatórios no YouTube, mas não tem um caminho. Fica pulando de galho em galho e nunca termina uma música." }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                viewport={{ once: true }}
+                className="p-8 rounded-2xl bg-stone-50 border border-stone-100"
+              >
+                <h3 className="text-2xl font-bold mb-4 text-stone-900">{item.title}</h3>
+                <p className="text-stone-600 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Solução */}
+      <Section className="bg-stone-900 text-white">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="order-2 lg:order-1">
+            <img 
+              src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1000&auto=format&fit=crop" 
+              alt="Violin Detail" 
+              className="rounded-3xl shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="order-1 lg:order-2 text-center lg:text-left">
+            <h2 className="text-violin-light font-bold uppercase tracking-widest mb-4">A Solução Definitiva</h2>
+            <Headline className="lg:text-left text-white">Domine o Violino com o Método Mestre das Cordas</Headline>
+            <p className="text-xl text-stone-400 mb-8 leading-relaxed">
+              Esqueça a teoria maçante e os exercícios que não levam a lugar nenhum. Nosso e-book foi desenhado para quem quer resultados práticos e rápidos.
+            </p>
+            <ul className="space-y-6 text-left inline-block lg:block">
+              {[
+                "Postura Perfeita: O guia visual para segurar o violino e o arco sem dor.",
+                "Técnica de Arco: Como tirar um som doce e aveludado desde o primeiro dia.",
+                "Leitura Simplificada: Aprenda a ler partituras sem precisar de anos de teoria.",
+                "Cronograma de 30 Dias: O que praticar a cada dia para tocar sua primeira música."
+              ].map((text, i) => (
+                <li key={i} className="flex gap-4 items-start">
+                  <div className="mt-1 bg-violin-light/20 p-1 rounded-full">
+                    <CheckCircle className="text-violin-light" size={24} />
+                  </div>
+                  <span className="text-lg text-stone-200">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* Prova Social */}
+      <Section className="bg-stone-50">
+        <Headline>O que nossos alunos estão dizendo</Headline>
+        <div className="grid md:grid-cols-3 gap-8 mt-12">
+          {[
+            { name: "Ricardo Silva", role: "Iniciante do Zero", text: "Eu achava que nunca conseguiria tirar um som bonito. Em 3 semanas seguindo o Mestre das Cordas, já estou tocando 'Asa Branca' com clareza!" },
+            { name: "Mariana Costa", role: "Estudante", text: "O guia de postura salvou meus treinos. Antes eu sentia muita dor no ombro, agora consigo praticar por 1 hora sem cansar." },
+            { name: "João Pedro", role: "Aposentado", text: "Sempre foi meu sonho tocar violino. Este e-book é tão didático que parece que o professor está do meu lado. Recomendo muito!" }
+          ].map((item, i) => (
+            <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+              <div className="flex gap-1 mb-4 text-gold">
+                {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
+              </div>
+              <p className="text-stone-600 italic mb-6">"{item.text}"</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-stone-200 rounded-full flex items-center justify-center">
+                  <User className="text-stone-400" />
+                </div>
+                <div>
+                  <p className="font-bold text-stone-900">{item.name}</p>
+                  <p className="text-sm text-stone-500">{item.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Bônus */}
+      <Section className="bg-white">
+        <div className="text-center mb-16">
+          <h2 className="text-violin-red font-bold uppercase tracking-widest mb-4">Presentes Exclusivos</h2>
+          <Headline>Se você agir agora, leva esses 3 Bônus Gratuitos</Headline>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            { title: "Guia de Afinação", price: "R$ 47,00", desc: "Aprenda a afinar seu violino sozinho usando apenas o celular, sem risco de estourar as cordas.", icon: <Music /> },
+            { title: "Playlist de Exercícios", price: "R$ 67,00", desc: "Acesso a áudios de acompanhamento para você praticar no ritmo certo e não se perder.", icon: <Play /> },
+            { title: "Comunidade VIP", price: "R$ 97,00", desc: "Grupo exclusivo de alunos para trocar experiências, tirar dúvidas e postar sua evolução.", icon: <Gift /> }
+          ].map((bonus, i) => (
+            <div key={i} className="relative p-8 rounded-2xl bg-stone-50 border-2 border-dashed border-stone-200 text-center">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-violin-red text-white rounded-full flex items-center justify-center shadow-lg">
+                {bonus.icon}
+              </div>
+              <h3 className="text-xl font-bold mt-4 mb-2">{bonus.title}</h3>
+              <p className="text-stone-400 line-through text-sm mb-2">Valor original: {bonus.price}</p>
+              <p className="text-stone-600">Hoje: <span className="text-green-600 font-bold">GRÁTIS</span></p>
+              <p className="mt-4 text-sm text-stone-500 leading-relaxed">{bonus.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Oferta */}
+      <Section id="oferta" className="bg-stone-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1 bg-violin-red" />
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <h2 className="text-violin-light font-bold uppercase tracking-widest mb-6">Oferta Especial de Lançamento</h2>
+          <div className="bg-white/5 p-6 md:p-12 rounded-3xl border border-white/10 backdrop-blur-sm">
+            <h3 className="text-3xl font-serif mb-4 italic">E-book Mestre das Cordas</h3>
+            <p className="text-stone-400 mb-8">O guia completo do zero à primeira música + Todos os Bônus</p>
+            
+            <div className="mb-8">
+              <p className="text-stone-500 line-through text-xl">De R$ 197,00</p>
+              <p className="text-5xl md:text-6xl font-extrabold text-white mt-2">
+                <span className="text-2xl font-normal align-top mr-1">R$</span>
+                47,00
+              </p>
+              <p className="text-stone-400 mt-2">ou 5x de R$ 10,15*</p>
+            </div>
+
+            <a href="#" className="btn-primary w-full py-4 md:py-6 text-lg md:text-2xl mb-6">
+              SIM! QUERO SER UM MESTRE
+            </a>
+
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-stone-400">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="text-green-500" size={16} />
+                Acesso Imediato
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="text-violin-light" size={16} />
+                Oferta por Tempo Limitado
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Garantia */}
+      <Section className="bg-white">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12 p-12 rounded-3xl border-2 border-stone-100">
+          <img 
+            src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" 
+            alt="7 Days Guarantee" 
+            className="w-48 h-48"
+            referrerPolicy="no-referrer"
+          />
+          <div>
+            <h2 className="text-3xl font-bold mb-4">Risco Zero: 7 Dias de Garantia Incondicional</h2>
+            <p className="text-stone-600 text-lg leading-relaxed">
+              Eu confio tanto no meu método que te dou uma garantia total. Se em até 7 dias você achar que o e-book não é para você, ou se não gostar da cor da capa, basta me enviar um e-mail e eu devolvo 100% do seu dinheiro. Sem perguntas, sem burocracia.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* FAQ */}
+      <Section className="bg-stone-50">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <HelpCircle className="mx-auto text-violin-red mb-4" size={48} />
+            <Headline>Perguntas Frequentes</Headline>
+          </div>
+          <div className="space-y-2">
+            {[
+              { q: "Preciso ter um violino para começar?", a: "Sim, para praticar as atividades do e-book você precisará do instrumento. No e-book, inclusive, damos dicas de como escolher seu primeiro violino com bom custo-benefício." },
+              { q: "O acesso é vitalício?", a: "Sim! Uma vez que você adquire o e-book, ele é seu para sempre. Você pode baixar em quantos dispositivos quiser e consultar quando precisar." },
+              { q: "Serve para qualquer idade?", a: "Com certeza. O método é focado em uma linguagem simples e direta, ideal para jovens e adultos que querem aprender de forma prática." },
+              { q: "Como recebo o material?", a: "Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para download do e-book e acesso aos bônus." }
+            ].map((faq, i) => (
+              <FAQItem key={i} question={faq.q} answer={faq.a} />
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Biografia */}
+      <Section className="bg-white">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="text-center lg:text-left">
+            <h2 className="text-violin-red font-bold uppercase tracking-widest mb-4">Quem será seu guia</h2>
+            <Headline className="lg:text-left">Conheça o Mestre</Headline>
+            <p className="text-lg text-stone-600 mb-6 leading-relaxed">
+              Com mais de 15 anos de experiência no ensino de instrumentos de cordas, já ajudei centenas de alunos a realizarem o sonho de tocar violino.
+            </p>
+            <p className="text-lg text-stone-600 mb-8 leading-relaxed">
+              Minha missão é democratizar o ensino do violino, provando que qualquer pessoa, independente da idade ou talento nato, pode aprender se tiver o método certo em mãos.
+            </p>
+            <div className="flex gap-4 justify-center lg:justify-start">
+              <a href="#" className="p-3 bg-stone-100 rounded-full hover:bg-violin-red hover:text-white transition-all"><Instagram /></a>
+              <a href="#" className="p-3 bg-stone-100 rounded-full hover:bg-violin-red hover:text-white transition-all"><Youtube /></a>
+              <a href="#" className="p-3 bg-stone-100 rounded-full hover:bg-violin-red hover:text-white transition-all"><Facebook /></a>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="absolute -inset-4 bg-violin-red/10 rounded-3xl -rotate-3" />
+            <img 
+              src="https://images.unsplash.com/photo-1541913080211-4830395d947f?q=80&w=1000&auto=format&fit=crop" 
+              alt="Professor de Violino" 
+              className="relative rounded-3xl shadow-xl z-10"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        </div>
+      </Section>
+
+      {/* Footer */}
+      <footer className="bg-stone-900 text-stone-400 py-12 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="flex items-center justify-center gap-2 text-white font-serif text-2xl mb-8">
+            <Music className="text-violin-red" />
+            Mestre das Cordas
+          </div>
+          <p className="mb-8 max-w-2xl mx-auto text-sm">
+            Este produto não garante resultados. Todo aprendizado depende da dedicação e prática constante do aluno. Os depoimentos são de alunos reais que seguiram o método.
+          </p>
+          <div className="flex justify-center gap-8 text-sm mb-8">
+            <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
+            <a href="#" className="hover:text-white transition-colors">Política de Privacidade</a>
+            <a href="#" className="hover:text-white transition-colors">Contato</a>
+          </div>
+          <p className="text-xs">
+            © {new Date().getFullYear()} Mestre das Cordas. Todos os direitos reservados.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
