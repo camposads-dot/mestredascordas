@@ -354,7 +354,7 @@ export default function App() {
           </div>
           <div className="space-y-2">
             {[
-              { q: "Preciso ter um violino para começar?", a: "Sim, para praticar as atividades do e-book você precisará do instrumento. No e-book, inclusive, damos dicas de como escolher seu primeiro violino com bom custo-benefício." },
+              { q: "Preciso ter um violino para começar?", a: "Não exatamente, você pode aprender a teoria musical enquanto se prepara para comprar o seu violino, mas para praticar as atividades do e-book você precisará do instrumento. No e-book, inclusive, damos dicas de como escolher seu primeiro violino com bom custo-benefício." },
               { q: "O acesso é vitalício?", a: "Sim! Uma vez que você adquire o e-book, ele é seu para sempre. Você pode baixar em quantos dispositivos quiser e consultar quando precisar." },
               { q: "Serve para qualquer idade?", a: "Com certeza. O método é focado em uma linguagem simples e direta, ideal para jovens e adultos que querem aprender de forma prática." },
               { q: "Como recebo o material?", a: "Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para download do e-book e acesso aos bônus." }
