@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import tocando from "./assets/images/apresentacao.jpg";
+
 import { 
   CheckCircle, 
   Play, 
@@ -205,12 +205,11 @@ export default function App() {
       <Section className="bg-stone-900 text-white">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
-            <img 
-              src={tocando} 
-              alt="Violin Detail" 
-              className="rounded-3xl shadow-2xl"
-              referrerPolicy="no-referrer"
-            />
+           <img 
+  src="/images/apresentacao.jpg"
+  alt="Violin Detail"
+  className="rounded-3xl shadow-2xl"
+/>
           </div>
           <div className="order-1 lg:order-2 text-center lg:text-left">
             <h2 className="text-violin-light font-bold uppercase tracking-widest mb-4">A Solução Definitiva</h2>
@@ -254,7 +253,7 @@ export default function App() {
 
       <iframe
         className="w-full h-full"
-        src="https://youtube.com/shorts/kRMNuLtW8jU?si=Eil5AlciWTD1wq8E"
+        src="https://www.youtube.com/embed/kRMNuLtW8jU"
         title="Resultado Violino"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
