@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import tocando from ".assets/images/apresentacao.jpg";
 import { 
   CheckCircle, 
   Play, 
@@ -82,12 +83,7 @@ export default function App() {
 
   {/* Background */}
   <div className="absolute inset-0 z-0">
-    <img 
-      src="https://images.unsplash.com/photo-1460039230329-eb052ad74a7c?q=80&w=2000&auto=format&fit=crop"
-      alt="Violin background"
-      className="w-full h-full object-cover opacity-30"
-    />
-
+    
     {/* overlay */}
     <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/90 to-black"></div>
 
@@ -210,7 +206,7 @@ export default function App() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
             <img 
-              src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1000&auto=format&fit=crop" 
+              src={tocando} 
               alt="Violin Detail" 
               className="rounded-3xl shadow-2xl"
               referrerPolicy="no-referrer"
@@ -241,33 +237,35 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Prova Social */}
-      <Section className="bg-stone-50">
-        <Headline>O que nossos alunos estão dizendo</Headline>
-        <div className="grid md:grid-cols-3 gap-8 mt-12">
-          {[
-            { name: "Ricardo Silva", role: "Iniciante do Zero", text: "Eu achava que nunca conseguiria tirar um som bonito. Em 3 semanas seguindo o Mestre das Cordas, já estou tocando 'Asa Branca' com clareza!" },
-            { name: "Mariana Costa", role: "Estudante", text: "O guia de postura salvou meus treinos. Antes eu sentia muita dor no ombro, agora consigo praticar por 1 hora sem cansar." },
-            { name: "João Pedro", role: "Aposentado", text: "Sempre foi meu sonho tocar violino. Este e-book é tão didático que parece que o professor está do meu lado. Recomendo muito!" }
-          ].map((item, i) => (
-            <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
-              <div className="flex gap-1 mb-4 text-gold">
-                {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
-              </div>
-              <p className="text-stone-600 italic mb-6">"{item.text}"</p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-stone-200 rounded-full flex items-center justify-center">
-                  <User className="text-stone-400" />
-                </div>
-                <div>
-                  <p className="font-bold text-stone-900">{item.name}</p>
-                  <p className="text-sm text-stone-500">{item.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+      {/* Depoimento em vídeo */}
+<section className="bg-stone-100 py-24">
+
+  <div className="max-w-5xl mx-auto px-6 text-center">
+
+    <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+      Resultado Real de uma Aluna
+    </h2>
+
+    <p className="text-lg text-stone-600 mb-12 max-w-2xl mx-auto">
+      Veja o progresso de uma aluna após apenas 3 semanas aplicando o método Mestre das Cordas.
+    </p>
+
+    <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
+
+      <iframe
+        className="w-full h-full"
+        src="https://youtube.com/shorts/kRMNuLtW8jU?si=Eil5AlciWTD1wq8E"
+        title="Resultado Violino"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* Bônus */}
       <Section className="bg-white">
