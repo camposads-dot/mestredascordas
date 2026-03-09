@@ -78,65 +78,101 @@ export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden">
       {/* 1ª Dobra: Hero */}
-      <header className="relative bg-stone-900 text-white overflow-hidden min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 z-0 opacity-30">
-          <img 
-            src="https://images.unsplash.com/photo-1460039230329-eb052ad74a7c?q=80&w=2000&auto=format&fit=crop" 
-            alt="Violin background" 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/50 via-stone-900/80 to-stone-900" />
+<header className="relative bg-black text-white overflow-hidden min-h-[90vh] flex items-center">
+
+  {/* Background */}
+  <div className="absolute inset-0 z-0">
+    <img 
+      src="https://images.unsplash.com/photo-1460039230329-eb052ad74a7c?q=80&w=2000&auto=format&fit=crop"
+      alt="Violin background"
+      className="w-full h-full object-cover opacity-30"
+    />
+
+    {/* overlay */}
+    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/90 to-black"></div>
+
+    {/* red glow */}
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,0,0.25),transparent_70%)]"></div>
+  </div>
+
+  <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
+
+    {/* Texto */}
+    <motion.div 
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-center lg:text-left"
+    >
+
+      <span className="inline-block bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-6 tracking-widest uppercase">
+        Método Mestre das Cordas
+      </span>
+
+      <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-[1.05]">
+
+        PARE DE TENTAR <br/>
+
+        APRENDER <span className="text-red-500">SOZINHO</span> <br/>
+
+        E TOQUE SUA PRIMEIRA <br/>
+
+        MÚSICA EM <span className="text-red-500">30 DIAS</span>
+
+      </h1>
+
+      <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-xl">
+        O método passo a passo que elimina a frustração, corrige sua postura
+        e leva você do zero absoluto até tocar sua primeira música,
+        mesmo que nunca tenha pegado em um violino antes.
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+
+        <a 
+          href="#oferta"
+          className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-red-600/40 transition-all flex items-center gap-2 justify-center"
+        >
+          QUERO COMEÇAR AGORA
+          <ArrowRight size={20}/>
+        </a>
+
+        <div className="flex items-center justify-center lg:justify-start gap-3 text-gray-400 text-sm">
+          <ShieldCheck className="text-green-500" />
+          Compra 100% Segura
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
-          >
-            <span className="inline-block bg-violin-red text-white px-4 py-1 rounded-full text-sm font-bold mb-6 tracking-widest uppercase">
-              Método Mestre das Cordas
-            </span>
-            <h1 className="text-3xl md:text-5xl lg:text-7xl font-extrabold mb-6 leading-[1.1] font-serif">
-              PARE DE TENTAR APRENDER <span className="text-violin-light">SOZINHO</span> E TOQUE SUA PRIMEIRA MÚSICA EM 30 DIAS.
-            </h1>
-            <p className="text-xl md:text-2xl text-stone-300 mb-10 leading-relaxed font-light">
-              O método passo a passo que elimina a frustração, corrige sua postura e te leva do zero absoluto à execução impecável, sem gastar fortunas com aulas particulares.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="#oferta" className="btn-primary group">
-                QUERO COMEÇAR AGORA
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <div className="flex items-center justify-center lg:justify-start gap-3 text-stone-400 text-sm">
-                <ShieldCheck className="text-green-500" />
-                Compra 100% Segura
-              </div>
-            </div>
-          </motion.div>
+      </div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border-4 border-stone-800 w-full max-w-2xl mx-auto lg:mx-0"
-          >
-            <div className="absolute inset-0 flex items-center justify-center group cursor-pointer">
-              <img 
-                src="https://images.unsplash.com/photo-1573871666457-7c7329118cf9?q=80&w=1200&auto=format&fit=crop" 
-                alt="Video Thumbnail" 
-                className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
-                referrerPolicy="no-referrer"
-              />
-              <div className="w-20 h-20 bg-violin-red rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                <Play fill="white" size={32} className="ml-1" />
-              </div>
-            </div>
-          </motion.div>
+    </motion.div>
+
+    {/* Vídeo */}
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-red-600/40 w-full max-w-2xl mx-auto lg:mx-0"
+      style={{ boxShadow: "0 0 40px rgba(255,0,0,0.25)" }}
+    >
+
+      <div className="absolute inset-0 flex items-center justify-center group cursor-pointer">
+
+        <img 
+          src="https://images.unsplash.com/photo-1573871666457-7c7329118cf9?q=80&w=1200&auto=format&fit=crop"
+          alt="Video Thumbnail"
+          className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
+        />
+
+        <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+          <Play fill="white" size={32} className="ml-1"/>
         </div>
-      </header>
+
+      </div>
+
+    </motion.div>
+
+  </div>
+</header>
 
       {/* Problema */}
       <Section className="bg-white">
