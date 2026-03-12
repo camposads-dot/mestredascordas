@@ -155,7 +155,7 @@ Assista: Como tocar sua primeira música no violino
 </h3>
 
 <p className="text-lg text-red-400 font-semibold mb-6">
-mesmo começando do zero
+Mesmo começando do zero
 </p>
 
 <div className="rounded-2xl overflow-hidden shadow-2xl border border-red-600/30">
