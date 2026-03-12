@@ -153,11 +153,14 @@ export default function App() {
 
       <div className="absolute inset-0 flex items-center justify-center group cursor-pointer">
 
-        <img 
-          src="https://images.unsplash.com/photo-1573871666457-7c7329118cf9?q=80&w=1200&auto=format&fit=crop"
-          alt="Video Thumbnail"
-          className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
-        />
+        <iframe
+  className="w-full h-full"
+  src="https://youtu.be/wjO4TV5oYTc?si=zyTZBAUY5K7wQJJn"
+  title="Apresentação do Método Mestre das Cordas"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
 
         <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
           <Play fill="white" size={32} className="ml-1"/>
@@ -309,8 +312,8 @@ export default function App() {
               <p className="text-stone-400 mt-2">ou 5x de R$ 10,15*</p>
             </div>
 
-            <a href="#" className="btn-primary w-full py-4 md:py-6 text-lg md:text-2xl mb-6">
-              SIM! QUERO SER UM MESTRE
+            <a href="https://pay.kiwify.com.br/gq7PsxI" className="btn-primary w-full py-4 md:py-6 text-lg md:text-2xl mb-6">
+              QUERO PARAR DE TENTAR SOZINHO
             </a>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm text-stone-400">
