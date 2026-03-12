@@ -147,17 +147,24 @@ export default function App() {
   initial={{ opacity: 0, scale: 0.95 }}
   animate={{ opacity: 1, scale: 1 }}
   transition={{ duration: 0.8 }}
-  className="w-full max-w-2xl mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl border border-red-600/30"
+  className="w-full max-w-2xl mx-auto lg:mx-0"
 >
 
-<iframe
-  className="w-full aspect-video"
-  src="https://www.youtube.com/embed/wjO4TV5oYTc"
-  title="Apresentação Método Mestre das Cordas"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-></iframe>
+<h3 className="text-2xl md:text-3xl font-bold text-white text-center lg:text-left mb-6">
+  Apresentação do Método Mestre das Cordas
+</h3>
+
+<div className="rounded-2xl overflow-hidden shadow-2xl border border-red-600/30">
+  <iframe
+    className="w-full aspect-video"
+    src="https://www.youtube.com/embed/wjO4TV5oYTc"
+    title="Apresentação do Método Mestre das Cordas"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>
+
 </motion.div>
 
   </div>
@@ -189,7 +196,7 @@ export default function App() {
                 <h3 className="text-2xl font-bold mb-4 text-stone-900">{item.title}</h3>
                 <p className="text-stone-600 leading-relaxed">{item.desc}</p>
               </motion.div>
-              
+
             ))}
           </div>
         </div>
