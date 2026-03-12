@@ -143,32 +143,22 @@ export default function App() {
     </motion.div>
 
     {/* Vídeo */}
-    <motion.div 
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-red-600/40 w-full max-w-2xl mx-auto lg:mx-0"
-      style={{ boxShadow: "0 0 40px rgba(255,0,0,0.25)" }}
-    >
+    <motion.div
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8 }}
+  className="w-full max-w-2xl mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-2xl border border-red-600/30"
+>
 
-      <div className="absolute inset-0 flex items-center justify-center group cursor-pointer">
-
-      <iframe
-  className="w-full h-full rounded-2xl"
+<iframe
+  className="w-full aspect-video"
   src="https://www.youtube.com/embed/wjO4TV5oYTc"
-  title="Apresentação do Método Mestre das Cordas"
+  title="Apresentação Método Mestre das Cordas"
   frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowFullScreen
 ></iframe>
-
-        <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-          <Play fill="white" size={32} className="ml-1"/>
-        </div>
-
-      </div>
-
-    </motion.div>
+</motion.div>
 
   </div>
 </header>
@@ -199,6 +189,7 @@ export default function App() {
                 <h3 className="text-2xl font-bold mb-4 text-stone-900">{item.title}</h3>
                 <p className="text-stone-600 leading-relaxed">{item.desc}</p>
               </motion.div>
+              
             ))}
           </div>
         </div>
