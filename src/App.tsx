@@ -150,9 +150,13 @@ export default function App() {
   className="w-full max-w-2xl mx-auto lg:mx-0"
 >
 
-<h3 className="text-2xl md:text-3xl font-bold text-white text-center lg:text-left mb-6">
-  Apresentação do Método Mestre das Cordas
+<h3 className="text-2xl md:text-3xl font-bold text-white text-center lg:text-left mb-4">
+Assista: Como tocar sua primeira música no violino
 </h3>
+
+<p className="text-lg text-red-400 font-semibold mb-6">
+mesmo começando do zero
+</p>
 
 <div className="rounded-2xl overflow-hidden shadow-2xl border border-red-600/30">
   <iframe
