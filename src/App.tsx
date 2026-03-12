@@ -153,9 +153,9 @@ export default function App() {
 
       <div className="absolute inset-0 flex items-center justify-center group cursor-pointer">
 
-        <iframe
-  className="w-full h-full"
-  src="https://youtu.be/wjO4TV5oYTc?si=zyTZBAUY5K7wQJJn"
+      <iframe
+  className="w-full h-full rounded-2xl"
+  src="https://www.youtube.com/embed/wjO4TV5oYTc"
   title="Apresentação do Método Mestre das Cordas"
   frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
