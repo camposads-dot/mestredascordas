@@ -150,11 +150,11 @@ export default function App() {
   className="w-full max-w-2xl mx-auto lg:mx-0"
 >
 
-<h3 className="text-2xl md:text-3xl font-bold text-white text-center lg:text-left mb-4">
+<h3 className="text-3xl md:text-2xl lg:text-3xl font-bold text-white text-center lg:text-left mb-4 leading-tight">
 Assista: Como tocar sua primeira música no violino
 </h3>
 
-<p className="text-lg text-red-400 font-semibold mb-6">
+<p className="text-lg text-red-400 font-semibold mb-6 text-center lg:text-left">
 Mesmo começando do zero
 </p>
 
