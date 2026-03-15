@@ -1,17 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Mestre das Cordas</title>
 
 <!-- UTMIFY PIXEL -->
 <script>
 window.pixelId = "6938de2a9d712c27e7115945";
 var a = document.createElement("script");
-a.setAttribute("async", "");
-a.setAttribute("defer", "");
-a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+a.async = true;
+a.defer = true;
+a.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
 document.head.appendChild(a);
 </script>
 
@@ -21,32 +24,41 @@ document.head.appendChild(a);
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+n.queue=[];
+t=b.createElement(e);t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
 fbq('init', '1242553644036336');
 fbq('track', 'PageView');
 </script>
 
+<!-- META PIXEL NOSCRIPT -->
 <noscript>
 <img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1242553644036336&ev=PageView&noscript=1"/>
 </noscript>
 
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
 
-    <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
+<body>
+
+<div id="root"></div>
+
+<script type="module" src="/src/main.tsx"></script>
+
+<!-- UTMIFY UTMS -->
+<script
+src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+data-utmify-prevent-xcod-sck
+data-utmify-prevent-subids
+async
+defer
 ></script>
-  </body>
-</html>
 
+</body>
+
+</html>
